@@ -6,6 +6,7 @@ import Message from "./Message";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Button, FormControl, Input, InputLabel } from "@material-ui/core";
 import { useAuthState } from "react-firebase-hooks/auth";
+import './ChatRoom.css';
 
 function ChatRoom() {
   const dummy = useRef();
@@ -39,7 +40,7 @@ function ChatRoom() {
       </main>
 
       {user && (
-        <form>
+        <form className="ChatRoom__form">
           <FormControl>
             <InputLabel>Enter a message..</InputLabel>
             <Input

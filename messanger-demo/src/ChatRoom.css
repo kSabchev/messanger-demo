@@ -1,0 +1,8 @@
+.ChatRoom__form{
+    padding: 20px;
+    position: fixed;
+    bottom: 20px;
+    z-index: 1;
+    background-color: #e9e9eb;
+    width: 100%;
+}
