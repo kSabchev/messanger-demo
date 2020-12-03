@@ -1,6 +1,5 @@
 import './App.css';
 import { useAuthState} from 'react-firebase-hooks/auth'
-import { useCollectionData} from 'react-firebase-hooks/firestore'
 import { auth } from "./firebase";
 import ChatRoom from './ChatRoom';
 import SignOut  from './SignOut';
