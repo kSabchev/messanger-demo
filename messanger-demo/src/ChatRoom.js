@@ -1,11 +1,11 @@
-import firebase from 'firebase/app'
+import firebase from "firebase/app";
 import React, { useRef, useState } from "react";
 import { db, auth } from "./firebase";
 import Message from "./Message";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { Button, FormControl, Input, InputLabel } from "@material-ui/core";
 import { useAuthState } from "react-firebase-hooks/auth";
-import './ChatRoom.css';
+import "./ChatRoom.css";
 
 function ChatRoom() {
   const dummy = useRef();
@@ -18,7 +18,7 @@ function ChatRoom() {
   const sendMessage = async (e) => {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
-    
+
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -33,8 +33,9 @@ function ChatRoom() {
 
   return (
     <>
-      <main className="ChatRoom__main"> 
-        {messages && messages.map((msg) => <Message key={msg.key} message={msg} />)}
+      <main className="ChatRoom__main">
+        {messages &&
+          messages.map((msg) => <Message key={msg.id} message={msg} />)}
         <span ref={dummy}></span>
       </main>
 
