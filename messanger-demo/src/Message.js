@@ -3,28 +3,24 @@ import React from "react";
 import { auth } from "./firebase";
 import "./Message.css";
 
-import { useAuthState } from "react-firebase-hooks/auth";
-
-
-function Message({ message, uid, }) {
+function Message({ message }) {
   
-  const [user] = useAuthState(auth);
-  const isUser = message.username === user?.displayName;
+  const {text,photoURL, uid } = message;
+  const isUser = uid === auth.currentUser.uid;
   
-  const {text } = message;
-  const {photoURL} =message;
-  console.log(message)
-
   return (
     
     <div className={`message ${isUser && "message__user"}`}>
-      <img src={photoURL} alt=""/>
+      <img className="photo" src={photoURL} alt=""/>
       <Card className={isUser ? "message__userCard" : "message__guestCard"}>
         <CardContent>
           <Typography color="white" variant="h5" component="h2">
-            {user?.username}
-            {message?.username}:{text} 
+            {message?.username}:
           </Typography>
+          <Typography color="white" variant="h5" component="h2"> 
+           {text} 
+          </Typography>
+          {/* <p > {message?.username}:  {text} </p> */}
         </CardContent>
       </Card>
     </div>

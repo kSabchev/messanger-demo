@@ -10,7 +10,7 @@ import './ChatRoom.css';
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = db.collection("myMessages");
-  const query = messagesRef.orderBy("createdAt").limit(25);
+  const query = messagesRef.orderBy("createdAt", "asc").limit(25);
   const [user] = useAuthState(auth);
   const [messages] = useCollectionData(query, { idField: "id" });
   const [formValue, setFormValue] = useState("");
@@ -33,8 +33,8 @@ function ChatRoom() {
 
   return (
     <>
-      <main>
-        {messages && messages.map((msg) => <Message message={msg} />)}
+      <main className="ChatRoom__main"> 
+        {messages && messages.map((msg) => <Message key={msg.key} message={msg} />)}
         <span ref={dummy}></span>
       </main>
 

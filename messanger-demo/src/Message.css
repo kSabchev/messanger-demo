@@ -9,12 +9,30 @@
     margin-left:auto;
     color: white;
     text-align: left;
+    flex-direction: row-reverse;
 }
 
 .message__userCard {
     background-color: #0b81ff !important;
+    border-radius: 50px;
 }
 
 .message__guestCard {
     background-color: #e9e9eb !important;
+    border-radius: 50px;
 }
+
+/* .photo{
+    border-radius: 50%;
+} */
+
+/* p {
+    max-width: 500px;
+    margin-bottom: 12px;
+    line-height: 24px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    position: relative;
+    color: white;
+    text-align: center;
+  } */
